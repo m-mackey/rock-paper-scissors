@@ -5,14 +5,14 @@ function getCpuChoice () {
     
 }
 
-function playRounds(playerSelection, cpuSelection) {
-    switch (playerSelection, cpuSelection) {
-        case playerSelection == cpuSelection:
-            console.log("a tie");
-            break;
-    
-        default:
-            console.log("didn't work");
-            break;
-    }
+function gameRound(playerHand, cpuHand) {
+    if (playerHand === cpuHand) {
+        return 'tie'
+    } else if ((playerHand === 'rock' || playerHand === 'paper') && (cpuHand === 'rock' || cpuHand === 'paper') ){
+        return playerHand === 'paper' ? 'win' : 'lose'
+    } else if ((playerHand === 'paper' || playerHand === 'scissors') && (cpuHand === 'paper' || cpuHand === 'scissors') ){
+        return playerHand === 'scissors' ? 'win' : 'lose'
+    } else if ((playerHand === 'scissors' || playerHand === 'rock') && (cpuHand === 'scissors' || cpuHand === 'rock') ){
+        return playerHand === 'rock' ? 'win' : 'lose'
+    }  
 }
