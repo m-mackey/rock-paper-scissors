@@ -1,31 +1,35 @@
 function getCpuChoice () {
-    const options = ["rock", "paper", "scissors"];
+    const options = ['rock', 'paper', 'scissors'];
 
-    return options[Math.floor(Math.random() * options.length)]
+    return options[Math.floor(Math.random() * options.length)];
     
 }
 
 function gameRound(playerHand, cpuHand) {
+
     if (playerHand === cpuHand) {
-        return 'tie'
+        return result('tie', playerHand, cpuHand);
     } else if ((playerHand === 'rock' || playerHand === 'paper') && (cpuHand === 'rock' || cpuHand === 'paper') ){
-        // return playerHand === 'paper' ? 'win' : 'lose'
-        return playerHand === 'paper' ? onWin(playerHand, cpuHand) : onLose(playerHand, cpuHand);
+        return playerHand === 'paper' ? result('win', playerHand, cpuHand) : result('lose', playerHand, cpuHand);
     } else if ((playerHand === 'paper' || playerHand === 'scissors') && (cpuHand === 'paper' || cpuHand === 'scissors') ){
-        // return playerHand === 'scissors' ? 'win' : 'lose'
-        return playerHand === 'scissors' ? onWin(playerHand, cpuHand) : onLose(playerHand, cpuHand);
+        return playerHand === 'scissors' ? result('win', playerHand, cpuHand) : result('lose', playerHand, cpuHand);
     } else if ((playerHand === 'scissors' || playerHand === 'rock') && (cpuHand === 'scissors' || cpuHand === 'rock') ){
-        // return playerHand === 'rock' ? 'win' : 'lose'
-        return playerHand === 'rock' ? onWin(playerHand, cpuHand) : onLose(playerHand, cpuHand);
+        return playerHand === 'rock' ? result('win', playerHand, cpuHand) : result('lose', playerHand, cpuHand);
     }  
 }
 
-function onWin(playerHand, cpuHand) {
-    console.log(`You played ${playerHand}. CPU played ${cpuHand}. You win.`);
-    return 'win'    
-}
-
-function onLose(playerHand, cpuHand) {
-    console.log(`You played ${playerHand}. CPU played ${cpuHand}. You lose`);
-    return 'lose'
+function result(outcome, playerHand, cpuHand) {
+    switch (outcome) {
+        case 'tie':
+            console.log(`You played ${playerHand}. CPU played ${cpuHand}. It's a tie!`);
+            break;
+        case 'win':
+            console.log(`You played ${playerHand}. CPU played ${cpuHand}. You win.`);
+            break;
+        case 'lose':
+            console.log(`You played ${playerHand}. CPU played ${cpuHand}. You lose.`);
+            break;
+        default:
+            break;
+    }
 }
