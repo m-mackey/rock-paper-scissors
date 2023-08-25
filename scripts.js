@@ -6,8 +6,9 @@ function game() {
     
     while (round < 5){
         let playerHand = prompt('Rock, paper, or scissors?').toLowerCase();
-        //write something here to re=prompt if not rock paper or scissors, possibly make it its own function
-        round++;
+        //write something here to re-prompt if not rock paper or scissors, possibly make it its own function
+        //for reprompt: while (!rock, paper, scissors)
+        round++; //might move to bottom if re-prompts affect the number of rounds
         console.log(`Round ${round} Results`);
         gameRound(playerHand, getCpuChoice());  
         console.log(`You: ${playerScore}`, `CPU: ${cpuScore}`);
