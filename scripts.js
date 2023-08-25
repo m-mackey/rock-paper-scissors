@@ -1,3 +1,22 @@
+let round = 0;
+let playerScore = 0;
+let cpuScore = 0;
+    
+function game() {
+    
+    while (round < 5){
+        let playerHand = prompt('Rock, paper, or scissors?').toLowerCase();
+        //write something here to re=prompt if not rock paper or scissors
+        gameRound(playerHand, getCpuChoice());
+        round++;
+        console.log(round);
+    }
+    
+}
+
+
+
+
 function getCpuChoice () {
     const options = ['rock', 'paper', 'scissors'];
 
@@ -24,9 +43,11 @@ function result(outcome, playerHand, cpuHand) {
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. It's a tie!`);
             break;
         case 'win':
+            playerScore++;
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. You win.`);
             break;
         case 'lose':
+            cpuScore++;
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. You lose.`);
             break;
         default:
