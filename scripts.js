@@ -1,28 +1,11 @@
-let round = 0;
 let playerScore = 0;
 let cpuScore = 0;
     
 function game() {
     
-    while (round < 5){
-        let playerHand = prompt('Rock, paper, or scissors?').toLowerCase();
-        while(playerHand != 'rock' && playerHand != 'paper' && playerHand != 'scissors'){
-            playerHand = prompt('Please enter only rock, paper, or scissors').toLowerCase();
-        }
-        round++;
-        console.log(`Round ${round} Results`);
-        gameRound(playerHand, getCpuChoice());  
-        console.log(`You: ${playerScore}`, `CPU: ${cpuScore}`);
-    }
 
-    if (round === 5) {
-        if (playerScore === cpuScore) {
-            console.log(`Final Results: You: ${playerScore} CPU: ${cpuScore}. Nobody wins!`);
-        } else if (playerScore > cpuScore) {
-            console.log(`Final Results: You: ${playerScore} CPU: ${cpuScore}. You win the game!`);
-        } else {
-            console.log(`Final Results: You: ${playerScore} CPU: ${cpuScore}. CPU wins the game!`);
-        }
+    if (playerScore === 5 || cpuScore === 5) {
+        
     }
     
 }
