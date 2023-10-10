@@ -9,10 +9,6 @@ buttons.forEach((btn) => {
     })
 })
 
-function btnTest (btnText){
-    console.log(btnText);
-}
-
 function game() {
     
 
@@ -22,7 +18,7 @@ function game() {
     
 }
 
-function getCpuChoice () {
+let cpuHand = () => {
     const options = ['rock', 'paper', 'scissors'];
 
     return options[Math.floor(Math.random() * options.length)];
