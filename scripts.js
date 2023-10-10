@@ -32,27 +32,28 @@ function gameRound(playerHand, cpuHand) {
     }  
 }
 
+let roundResult = document.querySelector('.round-result');
 
 function result(outcome, playerHand, cpuHand) {
     switch (outcome) {
         case 'tie':
-            console.log(`You played ${playerHand}. CPU played ${cpuHand}. It's a tie!`);
+            roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. It's a tie!`;
             break;
         case 'win':
             playerScore += 1;
             console.log(playerScore);
             document.querySelector('#user-score').textContent = `Player Score: ${playerScore}`;
-            console.log(`You played ${playerHand}. CPU played ${cpuHand}. You win.`);
+            roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You win.`;
             break;
         case 'lose':
             cpuScore += 1;
             document.querySelector('#cpu-score').textContent = `Computer Score: ${cpuScore}`;
-            console.log(`You played ${playerHand}. CPU played ${cpuHand}. You lose.`);
+            roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You lose.`;
             break;
     }
 }
 
 if (playerScore === 5 || cpuScore === 5) {
-    
+
     
 }
