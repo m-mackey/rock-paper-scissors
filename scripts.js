@@ -1,8 +1,10 @@
 let playerScore = 0;
+document.querySelector('#user-score').textContent = `Player Score: ${playerScore}`;
 let cpuScore = 0;
+document.querySelector('#cpu-score').textContent = `Computer Score: ${cpuScore}`;
     
-const buttons = document.querySelectorAll('button');
 
+const buttons = document.querySelectorAll('button');
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
         gameRound(btn.textContent, cpuHand());
@@ -37,12 +39,20 @@ function result(outcome, playerHand, cpuHand) {
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. It's a tie!`);
             break;
         case 'win':
-            playerScore++;
+            playerScore += 1;
+            console.log(playerScore);
+            document.querySelector('#user-score').textContent = `Player Score: ${playerScore}`;
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. You win.`);
             break;
         case 'lose':
-            cpuScore++;
+            cpuScore += 1;
+            document.querySelector('#cpu-score').textContent = `Computer Score: ${cpuScore}`;
             console.log(`You played ${playerHand}. CPU played ${cpuHand}. You lose.`);
             break;
     }
+}
+
+if (playerScore === 5 || cpuScore === 5) {
+    
+    
 }
