@@ -1,6 +1,18 @@
 let playerScore = 0;
 let cpuScore = 0;
     
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        btnTest(btn.textContent);
+    })
+})
+
+function btnTest (btnText){
+    console.log(btnText);
+}
+
 function game() {
     
 
