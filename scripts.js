@@ -5,18 +5,9 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-        btnTest(btn.textContent);
+        gameRound(btn.textContent, cpuHand());
     })
 })
-
-function game() {
-    
-
-    if (playerScore === 5 || cpuScore === 5) {
-        
-    }
-    
-}
 
 let cpuHand = () => {
     const options = ['rock', 'paper', 'scissors'];
@@ -24,6 +15,7 @@ let cpuHand = () => {
     return options[Math.floor(Math.random() * options.length)];
     
 }
+
 
 function gameRound(playerHand, cpuHand) {
 
@@ -37,6 +29,7 @@ function gameRound(playerHand, cpuHand) {
         return playerHand === 'rock' ? result('win', playerHand, cpuHand) : result('lose', playerHand, cpuHand);
     }  
 }
+
 
 function result(outcome, playerHand, cpuHand) {
     switch (outcome) {
