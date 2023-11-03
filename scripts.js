@@ -1,8 +1,10 @@
 let playerScore = 0;
+let cpuScore = 0;
+
 document.querySelector(
   '#user-score'
 ).textContent = `Player Score: ${playerScore}`;
-let cpuScore = 0;
+
 document.querySelector(
   '#cpu-score'
 ).textContent = `Computer Score: ${cpuScore}`;
@@ -56,30 +58,33 @@ function result(outcome, playerHand, cpuHand) {
       break;
     case 'win':
       playerScore += 1;
-      console.log(playerScore);
       document.querySelector(
         '#user-score'
       ).textContent = `Player Score: ${playerScore}`;
-      roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You win.`;
+      roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You win this round.`;
       break;
     case 'lose':
       cpuScore += 1;
       document.querySelector(
         '#cpu-score'
       ).textContent = `Computer Score: ${cpuScore}`;
-      roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You lose.`;
+      roundResult.textContent = `You played ${playerHand}. CPU played ${cpuHand}. You lose this round.`;
       break;
   }
 
   scoreCheck();
 }
 
+const btnSection = document.querySelector('.btn-group');
+const winner = document.querySelector('.winner');
+
 function scoreCheck() {
   if (playerScore === 5 || cpuScore === 5) {
+    btnSection.textContent = '';
     if (playerScore === 5) {
-      winner.textContent = 'You win!';
+      winner.textContent = 'You win the game!';
     } else if (cpuScore === 5) {
-      winner.textContent = 'Computer wins!';
+      winner.textContent = 'Computer wins the game!';
     }
   }
 }
